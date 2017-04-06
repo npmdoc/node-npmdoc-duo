@@ -1,0 +1,847 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://duojs.org/">duo (v0.15.7)</a>
+</h1>
+<h4>A next-generation package manager for the front-end</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.duo">module duo</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.cache">
+            function <span class="apidocSignatureSpan">duo.</span>cache
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file">
+            function <span class="apidocSignatureSpan">duo.</span>file
+            <span class="apidocSignatureSpan">(attrs, duo)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.super_">
+            function <span class="apidocSignatureSpan">duo.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">duo.</span>file.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">duo.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.duo.cache">module duo.cache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.cache.cache">
+            function <span class="apidocSignatureSpan">duo.</span>cache
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.cache.clean">
+            function <span class="apidocSignatureSpan">duo.cache.</span>clean
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.duo.file">module duo.file</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.file">
+            function <span class="apidocSignatureSpan">duo.</span>file
+            <span class="apidocSignatureSpan">(attrs, duo)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.duo.file.prototype">module duo.file.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.dependencies">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>dependencies
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.exists">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>exists
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.include">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>include
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.included">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>included
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.json">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>json
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.load">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>load
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.local">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>local
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.modified">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>modified
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.remote">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>remote
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.set">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>set
+            <span class="apidocSignatureSpan">(attrs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.file.prototype.toString">
+            function <span class="apidocSignatureSpan">duo.file.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.duo.util">module duo.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.util.collect">
+            function <span class="apidocSignatureSpan">duo.util.</span>collect
+            <span class="apidocSignatureSpan">(val, memo)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.util.entries">
+            function <span class="apidocSignatureSpan">duo.util.</span>entries
+            <span class="apidocSignatureSpan">(root, list)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.util.findroot">
+            function <span class="apidocSignatureSpan">duo.util.</span>findroot
+            <span class="apidocSignatureSpan">(root)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.util.plugins">
+            function <span class="apidocSignatureSpan">duo.util.</span>plugins
+            <span class="apidocSignatureSpan">(root, plugins)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.util.token">
+            function <span class="apidocSignatureSpan">duo.util.</span>token
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.duo.util.type">
+            function <span class="apidocSignatureSpan">duo.util.</span>type
+            <span class="apidocSignatureSpan">(src)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.duo" id="apidoc.module.duo">module duo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.duo.cache" id="apidoc.element.duo.cache">
+        function <span class="apidocSignatureSpan">duo.</span>cache
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cache = function (file) {
+  if (!(file in instances)) {
+    debug('creating new cache instance');
+    instances[file] = new Cache(file);
+  }
+
+  return instances[file];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file" id="apidoc.element.duo.file">
+        function <span class="apidocSignatureSpan">duo.</span>file
+        <span class="apidocSignatureSpan">(attrs, duo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function File(attrs, duo) {
+  if (!(this instanceof File)) return new File(attrs, duo);
+  this.attrs = clone(attrs || {});
+  this.duo = duo;
+
+  var type = attrs.type ? '.' + attrs.type : '';
+  var path = attrs.path || 'source' + type;
+
+  // initial attrs
+  this.attrs.path = resolve(attrs.root, path);
+  this.attrs.type = attrs.type || extension(this.path);
+  this.attrs.id = relative(duo.root(), this.path);
+
+  // local vs remote
+  this.attrs.local = !!(attrs.entry || attrs.local);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.super_" id="apidoc.element.duo.super_">
+        function <span class="apidocSignatureSpan">duo.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.duo.cache" id="apidoc.module.duo.cache">module duo.cache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.duo.cache.cache" id="apidoc.element.duo.cache.cache">
+        function <span class="apidocSignatureSpan">duo.</span>cache
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cache = function (file) {
+  if (!(file in instances)) {
+    debug('creating new cache instance');
+    instances[file] = new Cache(file);
+  }
+
+  return instances[file];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.cache.clean" id="apidoc.element.duo.cache.clean">
+        function <span class="apidocSignatureSpan">duo.cache.</span>clean
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function* () {
+  debug('clearing out cache instance list');
+  yield each(values(instances), function* (instance) {
+    yield instance.clean();
+  });
+  instances = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  return instances[file];
+};
+
+exports.clean = function* () {
+  debug('clearing out cache instance list');
+  yield each(values(instances), function* (instance) {
+    yield instance.<span class="apidocCodeKeywordSpan">clean</span>();
+  });
+  instances = {};
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.duo.file" id="apidoc.module.duo.file">module duo.file</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.file" id="apidoc.element.duo.file.file">
+        function <span class="apidocSignatureSpan">duo.</span>file
+        <span class="apidocSignatureSpan">(attrs, duo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function File(attrs, duo) {
+  if (!(this instanceof File)) return new File(attrs, duo);
+  this.attrs = clone(attrs || {});
+  this.duo = duo;
+
+  var type = attrs.type ? '.' + attrs.type : '';
+  var path = attrs.path || 'source' + type;
+
+  // initial attrs
+  this.attrs.path = resolve(attrs.root, path);
+  this.attrs.type = attrs.type || extension(this.path);
+  this.attrs.id = relative(duo.root(), this.path);
+
+  // local vs remote
+  this.attrs.local = !!(attrs.entry || attrs.local);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.duo.file.prototype" id="apidoc.module.duo.file.prototype">module duo.file.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.dependencies" id="apidoc.element.duo.file.prototype.dependencies">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>dependencies
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">dependencies = function () {
+  if (this.deps) return this.deps;
+  if (!this.src) return [];
+  this.deps = filedeps(this.src, this.type);
+  return this.deps;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.exists" id="apidoc.element.duo.file.prototype.exists">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>exists
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function* () {
+  if (this.raw != null) return true;
+  else return yield exists(this.path);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.include" id="apidoc.element.duo.file.prototype.include">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>include
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">include = function (){
+  return this[target][name].apply(this[target], arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.included" id="apidoc.element.duo.file.prototype.included">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>included
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">included = function (){
+  return this[target][name].apply(this[target], arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.json" id="apidoc.element.duo.file.prototype.json">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>json
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">json = function () {
+  var json = clone(this.attrs);
+  if (!json.entry) delete json.entry;
+  return mask(json, fields);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ var raw = this.raw;
+ if (raw == null) raw = yield fs.readFile(this.path, 'utf8');
+ this.attrs.src = raw;
+
+ // transform the file and update attributes
+ var entry = this.entry ? this : this.duo.entry();
+ var res = yield this.plugins.run(this, entry);
+ this.set(res[0].<span class="apidocCodeKeywordSpan">json</span>());
+
+ return this;
+};
+
+/**
+* Check if the path to the file exists, unless we already have the raw source.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.load" id="apidoc.element.duo.file.prototype.load">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>load
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function* () {
+  if (typeof this.src !== 'undefined') return this;
+
+  // read the file
+  var raw = this.raw;
+  if (raw == null) raw = yield fs.readFile(this.path, 'utf8');
+  this.attrs.src = raw;
+
+  // transform the file and update attributes
+  var entry = this.entry ? this : this.duo.entry();
+  var res = yield this.plugins.run(this, entry);
+  this.set(res[0].json());
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.local" id="apidoc.element.duo.file.prototype.local">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>local
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">local = function () {
+  if (this.attrs.entry) return true;
+  if (this.attrs.local) return !!this.attrs.local;
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+* Determine if a file is a remote (eg: not a local)
+*/
+
+File.prototype.remote = function () {
+ return !this.<span class="apidocCodeKeywordSpan">local</span>();
+};
+
+/**
+* Get the extension of a `path`.
+*
+* @param {String} path
+* @return {String} ext
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.modified" id="apidoc.element.duo.file.prototype.modified">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>modified
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function* () {
+  try {
+    var stat = yield fs.stat(this.path);
+    this.attrs.mtime = stat.mtime.getTime();
+  } catch (e) {
+    var now = new Date();
+    this.attrs.mtime = now.getTime();
+  }
+
+  return this.mtime;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.remote" id="apidoc.element.duo.file.prototype.remote">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>remote
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remote = function () {
+  return !this.local();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.set" id="apidoc.element.duo.file.prototype.set">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>set
+        <span class="apidocSignatureSpan">(attrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (attrs) {
+  extend(this.attrs, attrs || {});
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ var raw = this.raw;
+ if (raw == null) raw = yield fs.readFile(this.path, 'utf8');
+ this.attrs.src = raw;
+
+ // transform the file and update attributes
+ var entry = this.entry ? this : this.duo.entry();
+ var res = yield this.plugins.run(this, entry);
+ this.<span class="apidocCodeKeywordSpan">set</span>(res[0].json());
+
+ return this;
+};
+
+/**
+* Check if the path to the file exists, unless we already have the raw source.
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.file.prototype.toString" id="apidoc.element.duo.file.prototype.toString">
+        function <span class="apidocSignatureSpan">duo.file.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  var json = clone(this.attrs);
+  if (!json.entry) delete json.entry;
+  return mask(json, fields);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.duo.util" id="apidoc.module.duo.util">module duo.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.duo.util.collect" id="apidoc.element.duo.util.collect">
+        function <span class="apidocSignatureSpan">duo.util.</span>collect
+        <span class="apidocSignatureSpan">(val, memo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">collect = function (val, memo) {
+  val.split(',').forEach(function (val) {
+    memo.push(val);
+  });
+
+  return memo;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.util.entries" id="apidoc.element.duo.util.entries">
+        function <span class="apidocSignatureSpan">duo.util.</span>entries
+        <span class="apidocSignatureSpan">(root, list)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">entries = function (root, list) {
+  return list.filter(globs).reduce(function (memo, entry) {
+    if (isDir(path.join(root, entry))) {
+      return memo.concat(listFiles(root, entry));
+    } else {
+      return memo.concat(entry);
+    }
+  }, []);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.util.findroot" id="apidoc.element.duo.util.findroot">
+        function <span class="apidocSignatureSpan">duo.util.</span>findroot
+        <span class="apidocSignatureSpan">(root)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">findroot = function (root) {
+  var cwd = process.cwd();
+  if (root) return resolve(cwd, root);
+  var sep = path.sep;
+  var parts = cwd.split(sep);
+  var dir = cwd;
+
+  while (!exists(path.join(dir, 'component.json')) &amp;&amp; parts.length &gt; 1) {
+    parts.pop();
+    dir = parts.join(sep);
+  }
+
+  return parts.length &lt;= 1
+    ? cwd
+    : dir;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.util.plugins" id="apidoc.element.duo.util.plugins">
+        function <span class="apidocSignatureSpan">duo.util.</span>plugins
+        <span class="apidocSignatureSpan">(root, plugins)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">plugins = function (root, plugins) {
+  return plugins.map(function (plugin) {
+    var local = resolve(root, plugin);
+    var npm = resolve(root, 'node_modules', plugin);
+    var cwd = resolve(process.cwd(), 'node_modules', plugin);
+    var mod;
+
+    if (exists(local)) mod = require(local);
+    else if (exists(local + '.js')) mod = require(local);
+    else if (exists(npm)) mod = require(npm);
+    else mod = require(cwd);
+
+    return Array.isArray(mod) ? mod : mod();
+  }, []);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.util.token" id="apidoc.element.duo.util.token">
+        function <span class="apidocSignatureSpan">duo.util.</span>token
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">token = function () {
+  if ('GH_TOKEN' in process.env) return process.env.GH_TOKEN;
+
+  var auth = netrc('api.github.com');
+  if (auth &amp;&amp; auth.password) return auth.password;
+
+  return false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.duo.util.type" id="apidoc.element.duo.util.type">
+        function <span class="apidocSignatureSpan">duo.util.</span>type
+        <span class="apidocSignatureSpan">(src)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">type = function (src) {
+  return langmap[detect(src)];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
