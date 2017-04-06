@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"duo",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "duo",
+    "description": "api documentation for [duo (v0.15.7)](http://duojs.org/) [![npm package](https://img.shields.io/npm/v/npmdoc-duo.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-duo) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-duo.svg)](https://travis-ci.org/npmdoc/node-npmdoc-duo)",
     "devDependencies": {
         "duo": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-duo",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-duo",
+    "keywords": [
+        "documentation",
+        "duo"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_duo.js",
+    "name": "npmdoc-duo",
+    "nameAlias": "npmdoc_duo",
+    "nameOriginal": "npmdoc-duo",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-duo"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
