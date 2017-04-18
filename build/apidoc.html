@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.duo.duo">
+            function <span class="apidocSignatureSpan"></span>duo
+            <span class="apidocSignatureSpan">(root)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.duo.cache">
             function <span class="apidocSignatureSpan">duo.</span>cache
             <span class="apidocSignatureSpan">(file)</span>
@@ -302,6 +311,47 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.duo" id="apidoc.module.duo">module duo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.duo.duo" id="apidoc.element.duo.duo">
+        function <span class="apidocSignatureSpan"></span>duo
+        <span class="apidocSignatureSpan">(root)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Duo(root) {
+  if (!(this instanceof Duo)) return new Duo(root);
+  if (!root) throw error(&#x27;duo requires a root directory&#x27;);
+  Emitter.call(this);
+  this.root(root);
+  this.manifest(&#x27;component.json&#x27;);
+  this.installTo(&#x27;components&#x27;);
+  this.buildTo(&#x27;build&#x27;);
+  this.copy(false);
+  this.development(false);
+  this.sourceMap(false);
+  this.concurrency(50);
+  this.update(false);
+  this.cache(true);
+
+  this.assets = [];
+  this.mapping = {};
+  this.includes = {};
+  this.packages = {};
+  this.json = readJson(this.path(&#x27;component.json&#x27;));
+
+  // plugins
+  this.plugins = new Ware();
+  this.plugins.run = thunk(this.plugins.run);
+
+  // alternate plugins (used for the full build, not individual files)
+  this.altPlugins = new Ware();
+  this.altPlugins.run = thunk(this.altPlugins.run);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
