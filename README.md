@@ -1,6 +1,6 @@
 # npmdoc-duo
 
-#### api documentation for  [duo (v0.15.7)](http://duojs.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-duo.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-duo) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-duo.svg)](https://travis-ci.org/npmdoc/node-npmdoc-duo)
+#### basic api documentation for  [duo (v0.15.7)](http://duojs.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-duo.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-duo) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-duo.svg)](https://travis-ci.org/npmdoc/node-npmdoc-duo)
 
 #### A next-generation package manager for the front-end
 
