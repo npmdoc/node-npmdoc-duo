@@ -56,15 +56,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.duo.duo">
-            function <span class="apidocSignatureSpan"></span>duo
-            <span class="apidocSignatureSpan">(root)</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.duo.cache">
             function <span class="apidocSignatureSpan">duo.</span>cache
             <span class="apidocSignatureSpan">(file)</span>
@@ -77,15 +68,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.duo.file">
             function <span class="apidocSignatureSpan">duo.</span>file
             <span class="apidocSignatureSpan">(attrs, duo)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.duo.super_">
-            function <span class="apidocSignatureSpan">duo.</span>super_
-            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -307,47 +289,6 @@
 
 
     <h2>
-        <a href="#apidoc.element.duo.duo" id="apidoc.element.duo.duo">
-        function <span class="apidocSignatureSpan"></span>duo
-        <span class="apidocSignatureSpan">(root)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function Duo(root) {
-  if (!(this instanceof Duo)) return new Duo(root);
-  if (!root) throw error('duo requires a root directory');
-  Emitter.call(this);
-  this.root(root);
-  this.manifest('component.json');
-  this.installTo('components');
-  this.buildTo('build');
-  this.copy(false);
-  this.development(false);
-  this.sourceMap(false);
-  this.concurrency(50);
-  this.update(false);
-  this.cache(true);
-
-  this.assets = [];
-  this.mapping = {};
-  this.includes = {};
-  this.packages = {};
-  this.json = readJson(this.path('component.json'));
-
-  // plugins
-  this.plugins = new Ware();
-  this.plugins.run = thunk(this.plugins.run);
-
-  // alternate plugins (used for the full build, not individual files)
-  this.altPlugins = new Ware();
-  this.altPlugins.run = thunk(this.altPlugins.run);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
         <a href="#apidoc.element.duo.cache" id="apidoc.element.duo.cache">
         function <span class="apidocSignatureSpan">duo.</span>cache
         <span class="apidocSignatureSpan">(file)</span>
@@ -362,7 +303,23 @@
 
   return instances[file];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @return {Duo}
+ */
+
+function create(entry) {
+var duo = new Duo(root)
+  .development(program.development)
+  .sourceMap(sourceMap)
+  .<span class="apidocCodeKeywordSpan">cache</span>(program.cache)
+  .copy(program.copy)
+  .update(program.update)
+  .token(token)
+  .entry(entry);
+
+// FIXME: cache the packages between all builds in this process
+// this should be handled another way
+...</pre></li>
     </ul>
 
 
@@ -390,22 +347,23 @@
   // local vs remote
   this.attrs.local = !!(attrs.entry || attrs.local);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
+    <li>example usage<pre class="apidocCodePre">...
+ */
 
-
-
-    <h2>
-        <a href="#apidoc.element.duo.super_" id="apidoc.element.duo.super_">
-        function <span class="apidocSignatureSpan">duo.</span>super_
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
-  EventEmitter.init.call(this);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+Duo.prototype.entry = function () {
+switch (arguments.length) {
+  case 0:
+    return this._entry;
+  case 1:
+    this._entry = this.<span class="apidocCodeKeywordSpan">file</span>({
+      path: arguments[0],
+      entry: true
+    });
+    return this;
+  case 2:
+    this._entry = this.file({
+      raw: arguments[0],
+...</pre></li>
     </ul>
 
 
@@ -434,7 +392,23 @@
 
   return instances[file];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @return {Duo}
+ */
+
+function create(entry) {
+var duo = new Duo(root)
+  .development(program.development)
+  .sourceMap(sourceMap)
+  .<span class="apidocCodeKeywordSpan">cache</span>(program.cache)
+  .copy(program.copy)
+  .update(program.update)
+  .token(token)
+  .entry(entry);
+
+// FIXME: cache the packages between all builds in this process
+// this should be handled another way
+...</pre></li>
     </ul>
 
 
@@ -498,7 +472,23 @@ exports.clean = function* () {
   // local vs remote
   this.attrs.local = !!(attrs.entry || attrs.local);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+Duo.prototype.entry = function () {
+switch (arguments.length) {
+  case 0:
+    return this._entry;
+  case 1:
+    this._entry = this.<span class="apidocCodeKeywordSpan">file</span>({
+      path: arguments[0],
+      entry: true
+    });
+    return this;
+  case 2:
+    this._entry = this.file({
+      raw: arguments[0],
+...</pre></li>
     </ul>
 
 
@@ -521,7 +511,22 @@ exports.clean = function* () {
   this.deps = filedeps(this.src, this.type);
   return this.deps;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// ensure that the entry exists
+if (!(yield entry.exists())) {
+  throw error('cannot find entry: %s', rel);
+}
+
+// fetch the map of the dependency graph
+var deps = yield this.<span class="apidocCodeKeywordSpan">dependencies</span>(entry);
+
+// add "includes" to dependency mapping
+deps = extend(deps, this.includes);
+
+// add global
+if (global) deps[rel].global = global;
+...</pre></li>
     </ul>
 
 
@@ -537,7 +542,23 @@ exports.clean = function* () {
   if (this.raw != null) return true;
   else return yield exists(this.path);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var cache = yield this.getCache();
+if (cache) this.mapping = yield cache.read();
+
+this.updateDeps = (yield this.isManifestModified()) || this.update();
+
+// ensure that the entry exists
+if (!(yield entry.<span class="apidocCodeKeywordSpan">exists</span>())) {
+  throw error('cannot find entry: %s', rel);
+}
+
+// fetch the map of the dependency graph
+var deps = yield this.dependencies(entry);
+
+// add "includes" to dependency mapping
+...</pre></li>
     </ul>
 
 
@@ -552,7 +573,23 @@ exports.clean = function* () {
     <li>description and source-code<pre class="apidocCodePre">include = function (){
   return this[target][name].apply(this[target], arguments);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* fix: sourcemaps
+* fix: new Error typo
+* remove better-error dep
+* make: allow custom mocha reporter
+* duo-duplicates: show total size
+* duo-duplicates: fix to show real size
+* added tests for duo#include(name, src)
+* added duo.<span class="apidocCodeKeywordSpan">include</span>(name, src) + jade example
+* Merge pull request #53 from component/fix/duo-ls
+* Merge pull request #56 from component/fix/no-deps
+* added regenerator plugin example
+* fix: build with no deps
+* duo-ls(1): use stream-log
+* pack: sort names before packing, fixes #49
+* thunkify =&gt; thunk
+...</pre></li>
     </ul>
 
 
@@ -585,21 +622,20 @@ exports.clean = function* () {
   return mask(json, fields);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- var raw = this.raw;
- if (raw == null) raw = yield fs.readFile(this.path, 'utf8');
- this.attrs.src = raw;
+yield file.load();
 
- // transform the file and update attributes
- var entry = this.entry ? this : this.duo.entry();
- var res = yield this.plugins.run(this, entry);
- this.set(res[0].<span class="apidocCodeKeywordSpan">json</span>());
+// not a supported file type, don't parse any farther
+// but include in duo.json, for symlinking or copying
+if (!supported(file.type)) {
+  this.assets.push(this.bundle(file.id));
+  delete file.attrs.src;
+  map[file.id] = file.<span class="apidocCodeKeywordSpan">json</span>();
+  return map;
+}
 
- return this;
-};
-
-/**
-* Check if the path to the file exists, unless we already have the raw source.
-*
+// parse content for dependencies
+var deps = file.dependencies();
+var depmap = {};
 ...</pre></li>
     </ul>
 
@@ -627,7 +663,23 @@ exports.clean = function* () {
 
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // recurse the dependency's dependencies
+  gens = this.recurse(paths, map);
+  yield this.parallel(gens);
+  return map;
+}
+
+// load the file, applying plugin transforms
+yield file.<span class="apidocCodeKeywordSpan">load</span>();
+
+// not a supported file type, don't parse any farther
+// but include in duo.json, for symlinking or copying
+if (!supported(file.type)) {
+  this.assets.push(this.bundle(file.id));
+  delete file.attrs.src;
+  map[file.id] = file.json();
+...</pre></li>
     </ul>
 
 
@@ -683,7 +735,23 @@ File.prototype.remote = function () {
 
   return this.mtime;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {File} file
+ * @param {Object} map
+ * @return {Object}
+ * @api private
+ */
+
+Duo.prototype.dependencies = function* (file, map) {
+yield file.<span class="apidocCodeKeywordSpan">modified</span>();
+
+map = map || {};
+
+var json = clone(this.mapping[file.id] || {});
+var includes = this.includes;
+var cache = this.cache();
+var paths = [];
+...</pre></li>
     </ul>
 
 
@@ -715,21 +783,21 @@ File.prototype.remote = function () {
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
- var raw = this.raw;
- if (raw == null) raw = yield fs.readFile(this.path, 'utf8');
- this.attrs.src = raw;
+debug('%s: has not been modified. skip parsing', file.id);
+map[file.id] = json;
+paths = values(json.deps);
+gens = [];
 
- // transform the file and update attributes
- var entry = this.entry ? this : this.duo.entry();
- var res = yield this.plugins.run(this, entry);
- this.<span class="apidocCodeKeywordSpan">set</span>(res[0].json());
+// update the file with the cached
+// dependency mapping
+file.<span class="apidocCodeKeywordSpan">set</span>(json);
 
- return this;
-};
+// bundle if there is a non-supported file type
+if (!supported(file.type)) this.assets.push(this.bundle(file.id));
 
-/**
-* Check if the path to the file exists, unless we already have the raw source.
-*
+// recurse the dependency's dependencies
+gens = this.recurse(paths, map);
+yield this.parallel(gens);
 ...</pre></li>
     </ul>
 
@@ -792,7 +860,22 @@ File.prototype.remote = function () {
     }
   }, []);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+/**
+* Actions.
+*/
+
+if (program.stdout &amp;&amp; program.args.length) print(program.args[0]);
+else if (program.args.length) write(util.<span class="apidocCodeKeywordSpan">entries</span>(root, program.args));
+else if (!process.stdin.isTTY) input();
+else program.help();
+
+/**
+* Accept standard input.
+*/
+...</pre></li>
     </ul>
 
 
@@ -820,7 +903,22 @@ File.prototype.remote = function () {
     ? cwd
     : dir;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return;
+}
+
+/**
+ * Root.
+ */
+
+var root = util.<span class="apidocCodeKeywordSpan">findroot</span>(program.root);
+
+/**
+ * Asset path.
+ */
+
+var outdir = program.output;
+...</pre></li>
     </ul>
 
 
@@ -847,7 +945,23 @@ File.prototype.remote = function () {
     return Array.isArray(mod) ? mod : mod();
   }, []);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var watching = false;
+
+/**
+* Plugins.
+*/
+
+try {
+ var plugins = util.<span class="apidocCodeKeywordSpan">plugins</span>(root, program.use);
+} catch (err) {
+ error(err);
+ return;
+}
+
+/**
+* Source maps.
+...</pre></li>
     </ul>
 
 
@@ -867,7 +981,23 @@ File.prototype.remote = function () {
 
   return false;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var sourceMap = sourcemap(program.development, program.externalSourceMaps);
+
+/**
+ * GitHub Authentication.
+ */
+
+var token = util.<span class="apidocCodeKeywordSpan">token</span>();
+
+/**
+ * Stdout.
+ */
+
+if (program.stdout &amp;&amp; program.args.length &gt; 1) {
+logger.error('cannot use stdout with multiple entries');
+...</pre></li>
     </ul>
 
 
@@ -882,7 +1012,23 @@ File.prototype.remote = function () {
     <li>description and source-code<pre class="apidocCodePre">type = function (src) {
   return langmap[detect(src)];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+var logger = new Logger(process.stderr);
+
+/**
+* Error.
+*/
+
+logger.<span class="apidocCodeKeywordSpan">type</span>('error', '31m', function () {
+ logger.end();
+ process.exit(1);
+});
+
+/**
+* Resolve.
+*/
+...</pre></li>
     </ul>
 
 
